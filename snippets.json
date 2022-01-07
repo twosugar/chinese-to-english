@@ -1,0 +1,10 @@
+{
+	"Print to console": {
+		"prefix": ["array", "ChuXianCiShu", "汉"],
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+}

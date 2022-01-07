@@ -2,17 +2,19 @@
 	"name": "chinese-to-english",
 	"publisher": "sugarfish",
 	"displayName": "Chinese-to-English",
-	"description": "中文词法转英文词法联想",
+	"description": "中文词法转英文词法代码提示",
 	"version": "0.0.1",
+	"icon": "assert/img/logo.png",
 	"engines": {
-		"vscode": "^1.4.0"
+		"vscode": "^1.50.0"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/twosugar/chinese-to-english.git"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Snippets"
 	],
 	"activationEvents": [
 		"onCommand:chinese-to-english.helloWorld"
@@ -23,6 +25,19 @@
 			{
 				"command": "chinese-to-english.helloWorld",
 				"title": "Hello World"
+			}
+		],
+		"snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets.json"
+            }
+        ],
+		"keybindings": [
+			{
+			  "command": "chinese-to-english.helloWorld",
+			  "key": "shift+alt+r",
+			  "mac": "shift+cmd+r"
 			}
 		]
 	},
@@ -38,7 +53,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.4.0",
+		"@types/vscode": "^1.50.0",
 		"@types/glob": "^7.1.4",
 		"@types/mocha": "^9.0.0",
 		"@types/node": "14.x",
