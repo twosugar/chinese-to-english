@@ -2,10 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { BaiduTranstlate } from './combine';
-
+let timer = null
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
   let { window, languages, commands } = vscode;
 
   // Use the console to output diagnostic information (console.log) and errors (console.error)
@@ -27,13 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
       );
     }
   );
-  BaiduTranstlate.setSign("사랑, 애정");
   let provider = new (class implements vscode.HoverProvider {
-    provideHover(
+    async provideHover(
       _document: vscode.TextDocument,
       _position: vscode.Position,
       _token: vscode.CancellationToken
-    ): vscode.ProviderResult<vscode.Hover> {
+    ) {
       const editor = vscode.window.activeTextEditor;
       const selection = editor && editor.selection;
       // range可能为空
@@ -47,20 +46,14 @@ export function activate(context: vscode.ExtensionContext) {
           string = text;
         }
       }
-      console.log("string", string);
+      const { translateTool, translateString, humpResult, isZH } = await BaiduTranstlate.getTranslateRes(string);
       const commentCommandUri = vscode.Uri.parse(
         `command:chinese-to-english.helloWorld`
       );
-      const contents = new vscode.MarkdownString(
-        `[${string}](${commentCommandUri})`
-      );
-
-      // command URIs如果想在Markdown 内容中生效, 你必须设置`isTrusted`。
-      // 当创建可信的Markdown 字符, 请合理地清理所有的输入内容
-      // 以便你期望的命令command URIs生效
-      contents.isTrusted = true;
-
-      return new vscode.Hover(contents);
+      const hoverText = `**${translateTool}**\n\n ${string}[翻译]: ***[${translateString}](${commentCommandUri})***\n\n${humpResult}`;
+      const ms = new vscode.MarkdownString(hoverText);
+      ms.isTrusted = true;
+      return new vscode.Hover(ms);
     }
   })();
 
@@ -69,4 +62,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
