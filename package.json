@@ -3,7 +3,7 @@
 	"publisher": "sugarfish",
 	"displayName": "Chinese-to-English",
 	"description": "中文词法转英文词法代码提示",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"icon": "assert/img/logo.png",
 	"engines": {
 		"vscode": "^1.50.0"
@@ -17,19 +17,19 @@
 		"Snippets"
 	],
 	"activationEvents": [
-		"onCommand:chinese-to-english.helloWorld",
-		"onCommand:chinese-to-english.startTranslate"
+		"onCommand:chinese-to-english.startTranslate",
+		"onCommand:chinese-to-english.getHumpResult"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "chinese-to-english.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "chinese-to-english.startTranslate",
 				"title": "Start Translate"
+			},
+			{
+				"command": "chinese-to-english.getHumpResult",
+				"title": "getHumpResult"
 			}
 		],
 		"snippets": [
@@ -40,11 +40,13 @@
 		],
 		"keybindings": [
 			{
-				"command": "chinese-to-english.helloWorld",
-				"key": "shift+alt+r",
-				"mac": "shift+cmd+r"
+			  "command": "chinese-to-english.getHumpResult",
+			  "key": "ctrl+shift+t",
+			  "mac": "shift+cmd+t",
+			  "linux": "ctrl+meta+t",
+			  "when": "editorTextFocus"
 			}
-		]
+		  ]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
