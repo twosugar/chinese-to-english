@@ -10,4 +10,4 @@ linux: ctrl + meta + t
 ![](assert/img/demovideo1.gif)
 
 ### 鼠标悬浮
-![](assert/img/demoimg.png)
+![](assert/img/demoimg1.png)
