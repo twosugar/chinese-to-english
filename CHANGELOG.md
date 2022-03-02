@@ -4,6 +4,9 @@ All notable changes to the "chinese-to-english" extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## v0.0.5
+- 文档更新
+
 ## [Unreleased]
 
 - Initial release

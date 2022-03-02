@@ -3,7 +3,7 @@
 	"publisher": "sugarfish",
 	"displayName": "Chinese-to-English",
 	"description": "中文词法转英文词法代码提示",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"icon": "assert/img/logo.png",
 	"engines": {
 		"vscode": "^1.50.0"
