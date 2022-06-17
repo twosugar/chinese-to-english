@@ -1,5 +1,6 @@
 ## Chinese-to-English vsCode快速翻译插件
 解决程序员命名困难的问题，目前支持百度翻译，实现中文名转英文驼峰名
+vscode 拓展搜索 “Chinese-to-English”
 
 ### github
 https://github.com/twosugar/chinese-to-english
